@@ -28,7 +28,6 @@ public class IdempotencyService implements IIdempotencyService{
         BookingReadModel bookingReadModel = redisReadRepository.findBookingByIdempotencyKey(idempotencyKey);
 
         if(bookingReadModel != null) {
-            // TODO: move it to a mapper/adapter
             Booking booking = Booking.builder()
                     .id(bookingReadModel.getId())
                     .airbnbId(bookingReadModel.getAirbnbId())

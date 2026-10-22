@@ -9,6 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface BookingWriteRepository extends JpaRepository<Booking, Long> {
+
+    Optional<Booking> findById(Long id);
+
     List<Booking> findByAirbnbId(String airbnbId);
 
     Optional<Booking> findByIdempotencyKey(String idempotencyKey);
